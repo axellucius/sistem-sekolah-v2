@@ -8,22 +8,46 @@ class StudentController extends Controller
 {
     public function index()
     {
-        return "Ini adalah halaman daftar siswa";
+        $title = "Sistem Sekolah - Daftar Siswa";
+        $description = "Menampilkan daftar siswa yang terdaftar";
+
+        return view('students.index', [
+            'title' => $title,
+            'description' => $description,
+        ]);
     }
 
     public function show(string $id)
     {
-        return "Menampilkan detail siswa dengan ID: {$id}";
+        $title = "Sistem Sekolah - Detail Siswa";
+        $description = "Menampilkan daftar siswa yang terdaftar";
+
+        return view('students.show', [
+            'title' => $title,
+            'description' => $description,
+        ]);
     }
 
     public function create()
     {
-        return "Ini adalah halaman tambah siswa";
+        $title = "Sistem Sekolah - Menambahkan Siswa";
+        $description = "Menampilkan daftar siswa yang terdaftar";
+
+        return view('students.create', [
+            'title' => $title,
+            'description' => $description,
+        ]);
     } 
 
     public function edit(string $id)
     {
-        return "Ini adalah halaman edit siswa dengan ID: {$id}";
+        $title = "Sistem Sekolah - Edit Siswa";
+        $description = "Menampilkan daftar siswa yang terdaftar";
+
+        return view('students.edit', [
+            'title' => $title,
+            'description' => $description,
+        ]);
     } 
 
     public function store()
