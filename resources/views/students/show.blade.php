@@ -3,7 +3,8 @@
 @section('title', "Sistem Sekolah - Daftar Siswa")
 
 @section('content')
-    <a href="#" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku Induk</a>
+    <a href="{{ route('students.index', ['id' => 1]) }}"
+        class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku Induk</a>
 
 
 

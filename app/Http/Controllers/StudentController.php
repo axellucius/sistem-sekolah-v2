@@ -9,19 +9,37 @@ class StudentController extends Controller
     public function index()
     {
         $title = "Sistem Sekolah - Daftar Siswa";
-        $description = "Menampilkan daftar siswa yang terdaftar";
+        $student = [
+            [
+                'id' => 1,
+                'nis' => '1001',
+                'name' => 'Andi',
+                'class' => 'XII TKJ 3',
+                'major' => 'TKJ'
+            ],
+            [
+                'id' => 2,
+                'nis' => '1002',
+                'name' => 'Budi',
+                'class' => 'XII TKJ 2',
+                'major' => 'TKJ'
+            ],
+        ];
 
-        return view('students.index', [
+        return view ('students.index', [
             'title' => $title,
-            'description' => $description,
+            'students' => $student
         ]);
     }
+
+       
+    
 
     public function show(string $id)
     {
         $title = "Sistem Sekolah - Detail Siswa";
         $description = "Menampilkan daftar siswa yang terdaftar";
-
+        
         return view('students.show', [
             'title' => $title,
             'description' => $description,
