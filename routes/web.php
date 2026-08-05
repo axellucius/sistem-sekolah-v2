@@ -38,7 +38,7 @@ Route::name('teachers.')->prefix('teachers')->group(function () {
 
     Route::get('/', [TeacherController::class, 'index'])->name('index');
 
-    Route::get('/{id}', [TeacherController::class, 'show'])->name('show');
+    Route::get('/{id}', [TeacherController::class, 'show'])->name('show')->whereNumber('id');
 
     Route::get('/create', [TeacherController::class, 'create'])->name('create');
 
@@ -55,7 +55,7 @@ Route::name('classes.')->prefix('classes')->group(function () {
 
     Route::get('/', IndexController::class)->name('index');
 
-    Route::get('/{id}', ShowController::class)->name('show');
+    Route::get('/{id}', ShowController::class)->name('show')->whereNumber('id');
 
     Route::get('/create', CreateController::class)->name('create');
 
@@ -69,4 +69,4 @@ Route::name('classes.')->prefix('classes')->group(function () {
 });
 
 
-Route::resource('majors', MajorController::class);
+Route::resource('majors', MajorController::class); 

@@ -5,13 +5,14 @@
 @section('content')
     <div class="mb-8 border-b border-[#E5E3DB] pb-5">
 
-        <a href="{{ route('students.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
+        <a href="{{ route('teachers.index') }}"
+            class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
 
             Induk</a>
 
-        <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Catat Siswa Baru</h1>
+        <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Catat Guru Baru</h1>
 
-        <p class="mt-1 text-sm text-slate-500">Isi data untuk mendaftarkan siswa ke buku induk.</p>
+        <p class="mt-1 text-sm text-slate-500">Isi data untuk mendaftarkan Guru ke buku induk.</p>
 
     </div>
 
@@ -24,9 +25,9 @@
         <div>
 
             <label for="nis"
-                class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">NIS</label>
+                class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">NIP</label>
 
-            <input type="text" id="nis" name="nis" placeholder="Contoh: 2024010"
+            <input type="text" id="nis" name="nis" placeholder="Contoh: 198501012024"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
 
         </div>
@@ -39,7 +40,7 @@
 
                 Lengkap</label>
 
-            <input type="text" id="name" name="name" placeholder="Nama lengkap siswa"
+            <input type="text" id="name" name="name" placeholder="Nama lengkap Guru"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
 
         </div>
@@ -63,45 +64,38 @@
 
         </div>
 
-
-
         <div>
 
-            <label for="major"
-                class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Jurusan</label>
+            <label for="name" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">
 
-            <select id="major" name="major"
+                Subject</label>
+
+            <input type="text" id="name" name="name" placeholder="Mata pelajaran yang diampu"
+                class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
+
+        </div>
+
+         <div>
+
+            <label for="status" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Status
+
+                </label>
+
+            <select id="status" name="status"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
 
-                <option value="">Pilih jurusan</option>
+                <option value="A">Aktif</option>
 
-                <option value="">AKL</option>
-
-                <option value="">TKJ</option>
-
-                <option value="">BiD</option>
+                <option value="TA">Tidak Aktif</option>
 
             </select>
 
         </div>
 
-
-
-        <div>
-
-            <label for="class"
-                class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Kelas</label>
-
-            <input type="text" id="class" name="class" placeholder="Contoh: X AKL 1"
-                class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
-
-        </div>
-
-
-
         <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">
 
-            <a href="#" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Batal</a>
+            <a href="{{ route('teachers.index')}}"
+                class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Batal</a>
 
             <button type="submit"
                 class="bg-[#16213A] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Simpan

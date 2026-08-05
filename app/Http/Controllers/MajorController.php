@@ -11,7 +11,33 @@ class MajorController extends Controller
      */
     public function index()
     {
-        return "Ini adalah halaman daftar major";
+        $title = "Sistem Sekolah - Daftar Majors";
+        $major = [
+            [
+                'id' => 1,
+                'code' => 'AKL',
+                'name' => 'Akuntansi dan Keuangan Lembaga',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+            ],
+            [
+                'id' => 2,
+                'code' => 'TKJ',
+                'name' => 'Teknik Komputer dan Jaringan',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
+            ],
+            [
+                'id' => 3,
+                'code' => 'BD',
+                'name' => 'Bisnis Digital',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
+            ],
+        ];
+
+        return view('majors.index', [
+            'title' => $title,
+            'majors' => $major
+        ]);
+
     }
 
     /**
@@ -19,7 +45,11 @@ class MajorController extends Controller
      */
     public function create()
     {
-        return "Ini adalah halaman tambah major";
+        $title = "Sistem Sekolah - Create Major";
+
+        return view('majors.create', [
+            'title' => $title,
+        ]);
     }
 
     /**
@@ -35,7 +65,11 @@ class MajorController extends Controller
      */
     public function show(string $id)
     {
-        return "Menampilkan data major dengan ID: {$id}";
+        $title = "Sistem Sekolah - Detail Major";
+
+        return view('majors.show', [
+            'title' => $title,
+        ]);
     }
 
     /**
@@ -43,7 +77,11 @@ class MajorController extends Controller
      */
     public function edit(string $id)
     {
-        return "Ini adalah halaman edit major dengan ID: $id";
+        $title = "Sistem Sekolah - Edit Major";
+
+        return view('majors.edit', [
+            'title' => $title,
+        ]);
     }
 
     /**
