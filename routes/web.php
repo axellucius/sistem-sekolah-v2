@@ -13,10 +13,6 @@ use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Boost\Console\UpdateCommand;
 
-Route::get('/students', function () {
-    return view('welcome');
-});
-
 Route::name('students.')->prefix('students')->group(function () {
 
     Route::get('/', [StudentController::class, 'index'])->name('index');
@@ -69,4 +65,4 @@ Route::name('classes.')->prefix('classes')->group(function () {
 });
 
 
-Route::resource('majors', MajorController::class); 
+Route::resource('majors', MajorController::class);

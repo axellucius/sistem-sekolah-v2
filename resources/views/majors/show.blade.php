@@ -14,7 +14,7 @@
 
             <div>
 
-                <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Majors</p>
+                <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Jurusan</p>
 
                 <h1 class="font-display text-3xl font-semibold text-[#16213A]">AKL</h1>
 
@@ -23,7 +23,7 @@
 
             </div>
 
-            <a href="#"
+            <a href="{{ route('majors.edit', 1) }}"
                 class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>
 
         </div>
@@ -34,7 +34,7 @@
 
             <div class="flex justify-between px-8 py-4">
 
-                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Code</dt>
+                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Kode</dt>
 
                 <dd class="font-medium text-[#16213A]">AKL</dd>
 
@@ -42,7 +42,7 @@
 
             <div class="flex justify-between px-8 py-4">
 
-                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Name</dt>
+                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Nama</dt>
 
                 <dd class="font-medium text-[#16213A]">Akuntansi dan Keuangan Lembaga</dd>
 
@@ -50,7 +50,7 @@
 
             <div class="flex justify-between px-8 py-4">
 
-                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Description</dt>
+                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Deskripsi</dt>
 
                 <dd class="font-medium text-[#16213A]">Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan</dd>
 
@@ -62,9 +62,9 @@
 
         <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
 
-            <a href="" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
+            <a href="{{ route('majors.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
 
-            <form action="" method="POST" onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
+            <form action="{{ route('majors.destroy', 1) }}" method="POST" onsubmit="return confirm('Hapus data jurusan ini dari buku induk?')">
 
                 @csrf
 

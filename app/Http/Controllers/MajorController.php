@@ -11,7 +11,7 @@ class MajorController extends Controller
      */
     public function index()
     {
-        $title = "Sistem Sekolah - Daftar Majors";
+        $title = "Sistem Sekolah - Daftar Jurusan";
         $major = [
             [
                 'id' => 1,
@@ -45,7 +45,7 @@ class MajorController extends Controller
      */
     public function create()
     {
-        $title = "Sistem Sekolah - Create Major";
+        $title = "Sistem Sekolah - Tambah Jurusan";
 
         return view('majors.create', [
             'title' => $title,
@@ -65,7 +65,7 @@ class MajorController extends Controller
      */
     public function show(string $id)
     {
-        $title = "Sistem Sekolah - Detail Major";
+        $title = "Sistem Sekolah - Detail Jurusan";
 
         return view('majors.show', [
             'title' => $title,
@@ -77,7 +77,7 @@ class MajorController extends Controller
      */
     public function edit(string $id)
     {
-        $title = "Sistem Sekolah - Edit Major";
+        $title = "Sistem Sekolah - Ubah Jurusan";
 
         return view('majors.edit', [
             'title' => $title,

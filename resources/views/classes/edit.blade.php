@@ -22,7 +22,10 @@
 
 </div>
 
-<form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+<form action="{{ route('classes.update', ['id' => $class['id']]) }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+
+    @csrf
+    @method('PUT')
 
 
     <div>
@@ -50,9 +53,9 @@
             name="grade"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
 
-            <option value="X">X</option>
-            <option value="XI">XI</option>
-            <option value="XII">XII</option>
+            <option value="X" @selected($class['grade'] === 'X')>X</option>
+            <option value="XI" @selected($class['grade'] === 'XI')>XI</option>
+            <option value="XII" @selected($class['grade'] === 'XII')>XII</option>
 
         </select>
     </div>
@@ -71,7 +74,7 @@
 
             @foreach ($majors as $major)
                 <option value="{{ $major['id'] }}"
-                    {{ $major['id']}}>
+                    @selected($major['id'] === $class['major_id'])>
                     {{ $major['name'] }}
                 </option>
             @endforeach
@@ -93,7 +96,7 @@
 
             @foreach ($teachers as $teacher)
                 <option value="{{ $teacher['id'] }}"
-                    {{ $teacher['id']}}>
+                    @selected($teacher['id'] === $class['teacher_id'])>
                     {{ $teacher['name']}}
                 </option>
             @endforeach

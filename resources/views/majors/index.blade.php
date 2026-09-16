@@ -13,13 +13,13 @@
             <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Tahun Ajaran
                 2025/2026</p>
 
-            <h1 class="font-display text-3xl font-semibold text-[#16213A]">Daftar Majors</h1>
+            <h1 class="font-display text-3xl font-semibold text-[#16213A]">Daftar Jurusan</h1>
 
         </div>
 
-        <a href="{{ route('majors.create', ['major' => 1]) }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
+        <a href="{{ route('majors.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
 
-            Catat Majors Baru
+            Catat Jurusan Baru
 
         </a>
 
@@ -37,11 +37,11 @@
 
                     <th class="w-14 px-5 py-3.5 font-semibold">No.</th>
 
-                    <th class="px-5 py-3.5 font-semibold">Code</th>
+                    <th class="px-5 py-3.5 font-semibold">Kode</th>
 
-                    <th class="px-5 py-3.5 font-semibold">Name</th>
+                    <th class="px-5 py-3.5 font-semibold">Nama</th>
 
-                    <th class="px-5 py-3.5 font-semibold">Description</th>
+                    <th class="px-5 py-3.5 font-semibold">Deskripsi</th>
 
                 </tr>
 
@@ -71,14 +71,15 @@
 
                         <div class="flex justify-end gap-4 text-xs font-medium">
 
-                            <a href="{{ route('majors.show', ['major' => 1]) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
+                            <a href="{{ route('majors.show', $major['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
 
-                            <a href="{{ route('majors.edit', ['major' => 1]) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
+                            <a href="{{ route('majors.edit', $major['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
 
-                            <form action="" method="POST"
-                                onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
+                            <form action="{{ route('majors.destroy', $major['id']) }}" method="POST"
+                                onsubmit="return confirm('Hapus data jurusan ini dari buku induk?')">
 
-
+                                @csrf
+                                @method('DELETE')
 
                                 <button type="submit" class="text-red-700 hover:text-red-900">Hapus</button>
 

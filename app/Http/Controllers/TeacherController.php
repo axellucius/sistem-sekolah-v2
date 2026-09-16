@@ -33,7 +33,7 @@ class TeacherController extends Controller
 
         return view('teachers.index', [
             'title' => $title,
-            'teacher' => $teachers
+            'teachers' => $teachers
         ]);
     }
 
@@ -48,7 +48,7 @@ class TeacherController extends Controller
 
     public function create()
     {
-        $title = "Sistem Sekolah - Edit Guru";
+        $title = "Sistem Sekolah - Tambah Guru";
         
         return view('teachers.create', [
             'title' => $title,

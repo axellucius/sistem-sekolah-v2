@@ -9,24 +9,24 @@
 
             Induk</a>
 
-        <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Catat Majors Baru</h1>
+        <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Catat Jurusan Baru</h1>
 
-        <p class="mt-1 text-sm text-slate-500">Isi data untuk mendaftarkan majors baru ke buku induk.</p>
+        <p class="mt-1 text-sm text-slate-500">Isi data untuk mendaftarkan jurusan baru ke buku induk.</p>
 
     </div>
 
 
 
-    <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+    <form action="{{ route('majors.store') }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
 
-
+        @csrf
 
         <div>
 
             <label for="code"
                 class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Code</label>
 
-            <input type="text" id="nis" name="nis" placeholder="Contoh: AKL, TKJ, BD"
+            <input type="text" id="code" name="code" placeholder="Contoh: AKL, TKJ, BD"
                 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
 
         </div>
@@ -35,7 +35,7 @@
 
         <div>
 
-            <label for="name" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Majors
+            <label for="name" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Jurusan
 
                 </label>
 
@@ -50,8 +50,8 @@
             <label for="description"
                 class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Description</label>
 
-            <input type="text" id="class" name="class" placeholder="Penjelasan singkat mengenai jurusan"
-                class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
+            <textarea id="description" name="description" rows="3" placeholder="Penjelasan singkat mengenai jurusan"
+                class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none"></textarea>
 
         </div>
 
