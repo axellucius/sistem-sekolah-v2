@@ -11,81 +11,81 @@ class StudentController extends Controller
 {
     public function index(Request $request)
     {
-        $title = "Sistem Sekolah - Daftar Siswa";
-
+        $title = 'Sistem Sekolah - Daftar Siswa';
         $search = $request->query('search');
         $class = $request->query('class');
         $major = $request->query('major');
-
+        $search = \is_string($search) ? $search : null;
+        $class = \is_string($class) ? $class : null;
+        $major = \is_string($major) ? $major : null;
         $students = Student::select(['id', 'nis', 'name', 'class', 'major'])
-        ->when($search, function ($query, $search) {
-            $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', "%{$search}%")
-                    ->orWhere('nis', 'like', "%{$search}%");
-            });
-        })
-        ->when($class, fn ($query, $class) => $query->where('class', '=', $class))
-        ->when($major, fn ($query, $major) => $query->where('major', '=', $major))
-        ->paginate(10)
-        ->withQueryString();
+            ->when($search, function ($query, $search) {
+                $query->where(function ($query) use ($search) {
+                    $query->where('name', 'like', "%{$search}%")
+                        ->orWhere('nis', 'like', "%{$search}%");
+                });
 
-        $schoolClasses = ['10 AKL', '11 AKL', '11 TKJ 1', '11 TKJ 2', '10 BID', '12 TKJ 1', '12 TKJ 2', '12 TKJ 3'];
-        $majors = ['AKL', 'TKJ', 'BID'];
+            })
+            ->when($class, fn ($query, $class) => $query->where('class', '=', $class))
+            ->when($major, fn ($query, $major) => $query->where('major', '=', $major))
+            ->paginate(10)
+            ->withQueryString();
 
-            return view('students.index', [
-                'title' => $title,
-                'students' => $students,
-                'schoolClasses' => $schoolClasses,
-                'majors' => $majors
-            ]);
+        $schoolClasses = ['10 AKL', '10 BiD', '11 AKL', '11 TKJ 1', '11 TKJ 2', '12 TKJ 1', '12 TKJ 2', '12 TKJ 3'];
+        $majors = ['AKL', 'TKJ', 'BiD'];
+
+        return view('students.index', [
+            'title' => $title,
+            'students' => $students,
+            'schoolClasses' => $schoolClasses,
+            'majors' => $majors,
+        ]);
     }
 
     public function show(Student $student)
     {
-        $title = "Sistem Sekolah - Detail Siswa";
+        $title = 'Sistem Sekolah - Detail Siswa';
 
         return view('students.show', [
-            'title' => $title,
-            'student' => $student
-        ]);
-    }
-
-    public function create()
-    {
-        $title = "Sistem Sekolah - Tambah Siswa";
-        return view('students.create', [
-            'title' => $title
-        ]);
-    }
-
-    public function store(StoreRequest $request)
-    {
-        // Validasi
-        $validatedRequest = $request->validated();
-
-        //Tambahkan data ke database
-        Student::create($validatedRequest);
-
-        //Handle if success
-        return redirect()->route('students.index');
-    }
-
-    public function edit(Student $student)
-    {
-        $title = "Sistem Sekolah - Edit Siswa";
-
-        return view('students.edit', [
             'title' => $title,
             'student' => $student,
         ]);
     }
 
-    public function update(Student $student, UpdateRequest $request)
+    public function create()
     {
-        // Validasi
+        $title = 'Sistem Sekolah - Tambah Siswa';
+
+        return view('students.create', [
+            'title' => $title,
+        ]);
+    }
+
+    public function edit(Student $student)
+    {
+        return view('students.edit', [
+            'title' => 'Sistem Sekolah - Ubah Siswa',
+            'student' => $student,
+        ]);
+    }
+
+    public function store(StoreRequest $request)
+    {
+        // Validasi data yang dikirimkan dari form
         $validatedRequest = $request->validated();
 
-        // Update data
+        // Tambahkan Data Ke Database
+        Student::create($validatedRequest);
+
+        // Handle if succes
+        return redirect()->route('students.index');
+    }
+
+    public function update(Student $student, UpdateRequest $request)
+    {
+        $validatedRequest = $request->validated();
+
+        // Update Data
         $student->update($validatedRequest);
 
         // Handle if success
@@ -94,7 +94,7 @@ class StudentController extends Controller
 
     public function destroy(Student $student)
     {
-        // Delete data
+        // Delete Data
         $student->delete();
 
         // Handle if success
